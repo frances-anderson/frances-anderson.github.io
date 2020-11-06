@@ -44,7 +44,7 @@
       }
     ],
     "imageResize": true,
-    "uniqCompNum": 13,
+    "uniqCompNum": 14,
     "versionPublish": "4.12.0"
   },
   "pages": {
@@ -864,6 +864,129 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 15px)",
+              "padding-bottom": "(@paddingBottom * 15px)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "h3": {
+              "width": "fit-content",
+              "display": "inline-block",
+              "&:before": {
+                "position": "absolute",
+                "content": "''",
+                "left": "50%",
+                "top": "-120px",
+                "bottom": "0",
+                "width": "1px",
+                "height": "100px",
+                "background": "currentColor"
+              },
+              "position": "relative"
+            },
+            ".box": {
+              "background-image": "url(@video)",
+              "background-size": "cover",
+              "background-position": "center",
+              "height": "600px",
+              "margin": "auto",
+              "display": "flex",
+              "align-items": "center",
+              "justify-content": "center"
+            },
+            ".icon-wrap": {
+              "border-radius": "50%",
+              "border": "4px solid @iconColor",
+              "margin": "auto",
+              "height": "90px",
+              "width": "90px",
+              "cursor": "pointer",
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "transition": "all 0.3s",
+              "&:hover": {
+                "border": "4px solid @iconhoverColor",
+                ".mbr-iconfont": {
+                  "color": "@iconhoverColor !important"
+                }
+              }
+            },
+            ".mbr-media span": {
+              "font-size": "2rem",
+              "cursor": "pointer",
+              "position": "relative",
+              "height": "auto",
+              "display": "inline-block",
+              "padding-left": "6px",
+              "opacity": "1",
+              "transition": "all 0.25s",
+              "color": "@iconColor !important",
+              "&.mbri-play:before": {
+                "position": "absolute",
+                "left": "50%",
+                "-webkit-transform": "translateX(-35%)",
+                "-moz-transform": "translateX(-35%)",
+                "-ms-transform": "translateX(-35%)",
+                "-o-transform": "translateX(-35%)",
+                "transform": "translateX(-35%)"
+              }
+            },
+            ".modalWindow": {
+              "position": "fixed",
+              "z-index": "5000",
+              "left": "0",
+              "top": "0",
+              "background-color": "rgba(61, 61, 61, 0.65)",
+              "width": "100%",
+              "height": "100%",
+              ".modalWindow-container": {
+                "display": "table-cell",
+                "vertical-align": "middle"
+              },
+              ".modalWindow-video": {
+                "height": "calc(80vw / 1.778)",
+                "width": "80vw",
+                "margin": "0 auto"
+              }
+            },
+            "a.close": {
+              "position": "absolute",
+              "right": "4vw",
+              "top": "4vh",
+              "color": "#ffffff",
+              "z-index": "5000000",
+              "font-size": "37px",
+              "background": "#000",
+              "padding": "20px",
+              "border-radius": "50%",
+              "&:hover": {
+                "color": "#ffffff"
+              }
+            },
+            "@media (max-width: 576px)": {
+              ".box": {
+                "height": "250px"
+              }
+            }
+          },
+          "_name": "video2",
+          "_customHTML": "<section class=\"video2\" group=\"Video\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" plugins=\"PlayerVimeo\" mbr-class=\"{'mbr-fullscreen': fullScreen,\n                    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"15\" step=\"1\" value=\"12\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubTitle\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showmainTitle\">\n        <input type=\"color\" title=\"Icon Color\" name=\"iconColor\" value=\"#ffffff\">\n        <input type=\"color\" title=\"Icon Hover Color\" name=\"iconhoverColor\" value=\"#ffffff\">\n        <input type=\"image\" name=\"video\" value=\"../_images/background5.jpg\" title=\"Background Image\">\n        <input type=\"text\" title=\"Modal Video\" name=\"modalVideo\" value=\"<iframe width=&quot;100%&quot; height=&quot;20&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/922582054&amp;color=%23ff5500&amp;inverse=false&amp;auto_play=true&amp;show_user=true&quot;></iframe><div style=&quot;font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;&quot;><a href=&quot;https://soundcloud.com/user-430986107&quot; title=&quot;Frances Anderson&quot; target=&quot;_blank&quot; style=&quot;color: #cccccc; text-decoration: none;&quot;>Frances Anderson</a> · <a href=&quot;https://soundcloud.com/user-430986107/one-perfect-day&quot; title=&quot;One Perfect Day&quot; target=&quot;_blank&quot; style=&quot;color: #cccccc; text-decoration: none;&quot;>One Perfect Day</a></div>\">\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" value=\"../_images/background2.jpg\" title=\"Background Image\">\n            <input type=\"color\" value=\"#000000\" title=\"Background Color\">\n            <input type=\"video\" value=\"<iframe width=&quot;100%&quot; height=&quot;20&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/922582054&amp;color=%23ff5500&amp;inverse=false&amp;auto_play=true&amp;show_user=true&quot;></iframe><div style=&quot;font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;&quot;><a href=&quot;https://soundcloud.com/user-430986107&quot; title=&quot;Frances Anderson&quot; target=&quot;_blank&quot; style=&quot;color: #cccccc; text-decoration: none;&quot;>Frances Anderson</a> · <a href=&quot;https://soundcloud.com/user-430986107/one-perfect-day&quot; title=&quot;One Perfect Day&quot; target=&quot;_blank&quot; style=&quot;color: #cccccc; text-decoration: none;&quot;>One Perfect Day</a></div>\" title=\"Background Video\" selected=\"selected\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.4\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n\n    <div class=\"container align-center\">\n        <div class=\"row justify-content-md-center\">\n\n            <div class=\"mbr-white col-md-12 col-lg-12\">\n                <div class=\"title-align align-center\">\n                    <h3 class=\"mbr-section-subtitle mbr-semibold align-center mbr-light mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle, .title-align\" mbr-theme-style=\"display-4\" mbr-if=\"showSubTitle\">Latest</h3>\n                </div>\n                <h1 class=\"mbr-section-title align-center mbr-bold pb-5 mbr-fonts-style\" mbr-theme-style=\"display-2\" mbr-if=\"showmainTitle\">VIDEO</h1>\n            </div>\n\n\n            <div class=\"mbr-white col-md-12 col-12 col-lg-12\">\n                <div class=\"box\">\n                    <div class=\"mbr-media show-modal align-center py-2\" data-modal=\".modalWindow\">\n                        <div class=\"icon-wrap\">\n                            <span mbr-icon class=\"mbr-iconfont mobi-mbri-play mobi-mbri\"></span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div>\n        <div class=\"modalWindow\" style=\"display: none;\">\n            <div class=\"modalWindow-container\">\n                <div class=\"modalWindow-video-container\">\n                    <div class=\"modalWindow-video\">\n                        <iframe width=\"100%\" height=\"100%\" data-src=\"{{modalVideo}}\" frameborder=\"0\" allowfullscreen=\"1\"></iframe>\n                    </div>\n                    <a class=\"close\" role=\"button\" data-dismiss=\"modal\">\n                        <span aria-hidden=\"true\" class=\"mbri-close mbr-iconfont closeModal\"></span>\n                        <span class=\"sr-only\">Close</span>\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sfBEyiuiI7",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {},
+          "_anchor": "video2-d"
         }
       ]
     }
