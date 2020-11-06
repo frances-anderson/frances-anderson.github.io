@@ -1247,7 +1247,7 @@ a {
 .cid-sfBomXY8LQ {
   padding-top: 0px;
   padding-bottom: 0px;
-  background-color: #fafafa;
+  background-color: #3f7848;
 }
 .cid-sfBomXY8LQ iframe {
   margin-left: auto;
@@ -1255,6 +1255,9 @@ a {
 }
 .cid-sfBomXY8LQ .container-fluid {
   padding: 0;
+}
+.cid-sfBomXY8LQ .sc__title {
+  color: #ffffff;
 }
 .cid-sfBrKUfbma {
   padding-top: 0px;
